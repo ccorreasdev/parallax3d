@@ -1,4 +1,5 @@
 const parallax_el = document.querySelectorAll(".parallax");
+const main = document.querySelectorAll("main");
 
 let xValue = 0;
 let yValue = 0;
@@ -37,6 +38,12 @@ Array.from(parallax_el).filter((el) => !el.classList.contains("text")).forEach((
         "1"
     );
 })
+
+if (window.innerWidth >= 725) {
+    main.style.maxHeight = `${window.innerWidth * 0.6}px`
+} else {
+    main.style.maxHeight = `${window.innerWidth * 1.6}px`
+}
 
 timeline.from(".text h1", {
     y: window.innerHeight - document.querySelector(".text h1").getBoundingClientRect().top,
